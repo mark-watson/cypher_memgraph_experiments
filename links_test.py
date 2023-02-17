@@ -1,13 +1,14 @@
 from gqlalchemy import Memgraph, models
 models.IGNORE_SUBCLASSNOTFOUNDWARNING = True
+from pprint import pprint
 
 # Make a connection to the database
 memgraph = Memgraph(host='127.0.0.1', port=7687)
 
 def execute_and_fetch(query):
-    print(f"\nQuery: {query}")
+    print(f"Query: {query}")
     results = memgraph.execute_and_fetch(query)
-    print(f"Results: {list(results)}\n")
+    pprint(list(results))
     return list(results)
 
 
