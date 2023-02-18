@@ -17,6 +17,8 @@ execute_and_fetch("CREATE (n:Person {name: 'Andy', title: 'Developer', age: 30})
 execute_and_fetch("CREATE (n:Company {name: 'Amazon', location: 'USA'})")
 execute_and_fetch("CREATE p = (:Person {name:'Andy'})-[:ORDERS_AT]->(:Company {name: 'Amazon'})")
 
+execute_and_fetch("CREATE p = (:Person {name:'Andy'})-[:WORKS_AT]->(:Company {name: 'Neo4j'})<-[:WORKS_AT]-(:Person {name: 'Michael'}) RETURN p")
+
 execute_and_fetch("MATCH (n) RETURN n")
 execute_and_fetch("MATCH (n:Person) RETURN n")
 execute_and_fetch("MATCH (:Person {name: 'Andy'})-[r]-() RETURN r")
